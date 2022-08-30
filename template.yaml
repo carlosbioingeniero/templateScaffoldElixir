@@ -15,8 +15,6 @@ spec:
   parameters:
     - title: Ingrese los parámetros de configuracion
       required:
-        - package
-        - type
         - name
 
       properties:
@@ -27,48 +25,16 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
-        package:
-          title: Package
-          type: string
-          default: co.com.bancolombia
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        type:
-          title: Type
-          type: string
-          description: Reactivo o imperativo
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        coverage:
-          title: Type
-          type: string
-          default: jacoco
-          description: Cobertura pruebas unitarias
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-        lombok:
-          title: lombok
+        
+        telemetry:
+          title: Telemetry
           type: boolean
           default: true
           description: true or false
           ui:autofocus: true
           ui:options:
             rows: 5
-
-    - title: Credentials
-      required:
-        - accessToken
-      properties:
-        accessToken:
-          title: accessToken
-          type: string
-          description: Token para ejecutar back de Mauricio
-          ui:autofocus: true
-          ui:options:
-            rows: 5
+  
 
 
     #- title: Choose a location
@@ -95,19 +61,7 @@ spec:
         values:
           name: ${{ parameters.name }}
 
-    # This step publishes the contents of the working directory to GitHub.
-    - id: create
-      name: Create
-      action: github:actions:dispatch
-      input:
-        repoUrl: 'github.com?repo=build--scaffold&owner=maocq'
-        workflowId: '32474166'
-        branchOrTagName: main
-        token: ${{ parameters.accessToken }}
-        workflowInputs:
-          data: '{"models" : ["User", "Juanes"], "useCases" : ["CreateUser", "NewAccount"]}'
-
-
+   
     # The final step is to register our new component in the catalog.
     #- id: register
     #  name: Register
