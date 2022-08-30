@@ -2,9 +2,10 @@ apiVersion: scaffolder.backstage.io/v1beta3
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
 kind: Template
 metadata:
-  name: example-scaffold-clean_architecture
-  title: Scaffold Clean Architecture Java
-  description: Crea un artefacto basado en el Scaffold de Clean Architecture para Java
+  name: scaffold-elixir
+  title: Scaffold Elixir
+  description: Crea un artefacto basado en el Scaffold de Elixir
+  tags: ['recommended', 'elixir']
 spec:
   owner: user:guest
   type: service
